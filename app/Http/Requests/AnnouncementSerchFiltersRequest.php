@@ -33,6 +33,7 @@ class AnnouncementSerchFiltersRequest extends FormRequest
             'provinces' => [
                 'nullable',
                 'uuid',
+                'exists:provinces,id',
             ],
             'city' => [
                 'nullable',
