@@ -19,6 +19,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::prefix('filters')->group(function() {
+    Route::prefix('set')->group(function() {
+        Route::post('announcement', [
+            \App\Http\Controllers\FiltersController::class,
+            'setFiltersForAnnouncements'
+        ])->name('filters.announcement');
+    });
 
+    Route::post('clear/{key}', [\App\Http\Controllers\FiltersController::class, 'clearFilters'])->name('filters.clear');
+});
+Route::get('/announcements', [App\Http\Controllers\AnnouncementsController::class, 'index'])->name('home');
 Route::get('/announcements', [App\Http\Controllers\AnnouncementsController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

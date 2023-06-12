@@ -5,7 +5,9 @@
 
     <hr>
 
-    <form id="filtersInput" method="GET" action="">
+    <form id="filtersInput" method="POST" action="{{ route('filters.announcement') }}">
+        @csrf
+
         <x-inputs.double-buttons 
             first-name="Filtruj"
             second-name="Czyść"

@@ -3,7 +3,7 @@
     <input
         type="hidden"
         id="tagsInput"
-        name="tags[]"
+        name="tags"
     />
     <x-tags.tags-bar />
     <div id="tagsArea" class="mt-2 d-flex">

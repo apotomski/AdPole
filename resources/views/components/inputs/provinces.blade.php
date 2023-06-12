@@ -3,7 +3,7 @@
 </label>
 
 <select id="provinces" name="provinces" class="form-control text-center">
-    <option>
+    <option value="">
         --- BRAK ---
     </option>
     <option>
