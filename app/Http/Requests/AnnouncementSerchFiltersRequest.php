@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
-use App\Models\DTO\AnnouncementDto;
+use App\Models\DTO\AnnouncementFiltersDTO;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AnnouncementSerchFiltersRequest extends FormRequest
@@ -57,14 +57,14 @@ class AnnouncementSerchFiltersRequest extends FormRequest
         ];
     }
 
-    public function getData(): AnnouncementDto
+    public function getData(): AnnouncementFiltersDTO
     {
-        return AnnouncementDto::from([
+        return AnnouncementFiltersDTO::from([
             'sortBy' => $this->input('sort_by'),
             'provincesId' => $this->input('provinces'),
             'city' => $this->input('city'),
             'dateFrom' => $this->date('date_from'),
-            'tags' => $this->input('tags', []),
+            'tags' => collect($this->input('tags', [])),
         ]);
     }
 }

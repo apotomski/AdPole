@@ -22,7 +22,7 @@
                 input-id="sortAsc"
                 label="Od najnowszych"
                 name="sort_by"
-                value="asc"
+                value="desc"
                 checked="1"
             />
             <br>
@@ -30,7 +30,7 @@
                 input-id="sortDesc"
                 label="Od najstarszych"
                 name="sort_by"
-                value="desc"
+                value="asc"
                 checked="0"
             />
         </div>

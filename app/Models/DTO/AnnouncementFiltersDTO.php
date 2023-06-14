@@ -5,12 +5,13 @@ namespace App\Models\DTO;
 use Spatie\LaravelData\Data;
 use App\Interfaces\DTO\FiltersDtoInterface;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
-class AnnouncementDto extends Data implements FiltersDtoInterface
+class AnnouncementFiltersDTO extends Data implements FiltersDtoInterface
 {
     public string $sortBy;
     public ?string $provincesId;
     public ?string $city;
     public ?Carbon $dateFrom;
-    public ?array $tags;
+    public ?Collection $tags;
 }
