@@ -1,4 +1,4 @@
-<label id="{{ $inputId }}">
+<label for="{{ $inputId }}">
     {{ $label }}
 </label>
 <input 

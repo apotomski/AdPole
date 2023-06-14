@@ -18,13 +18,5 @@
     </div>
 </div>
 
-<script>
+@vite('resources/js/tags/tags.js')
     
-    //deleted tag after click x
-    document.querySelectorAll('.tag-card-delete-btn').forEach(element => {
-        element.addEventListener('click', (event) => {
-            document.querySelector(`#tag-${event.target.dataset.parentNumber}`).remove();
-        });
-    });
-    
-</script>

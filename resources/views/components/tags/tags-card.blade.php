@@ -6,7 +6,7 @@
     <span
         role="button"
         class="tag-card-delete-btn text-danger fs-5 fw-bold"
-        data-parent-number="{{ $tagNumber }}"
+        data-parent-id="{{ $tagNumber }}"
     >
         x
     </span>
