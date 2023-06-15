@@ -18,5 +18,5 @@
     </div>
 </div>
 
-@vite('resources/js/tags/tags.js')
+@vite('resources/js/tags/tags.ts')
     
