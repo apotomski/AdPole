@@ -9,6 +9,6 @@ class AnnouncementsDestroyService implements DestroyServiceInterface
 {
     public function destroy(Model $model): void
     {
-        
+        $model->delete();
     }
 }
