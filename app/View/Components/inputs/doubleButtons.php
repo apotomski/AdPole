@@ -11,6 +11,7 @@ class doubleButtons extends Component
     public string $firstName;
     public string $secondName;
     public string $secondHref;
+    public string $cssClass;
     /**
      * Create a new component instance.
      */
@@ -18,11 +19,13 @@ class doubleButtons extends Component
         string $firstName,
         string $secondName,
         string $secondHref,
+        string $cssClass,
     )
     {
         $this->firstName = $firstName;
         $this->secondName = $secondName;
         $this->secondHref = $secondHref;
+        $this->cssClass = $cssClass;
     }
 
     /**

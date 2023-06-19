@@ -1,4 +1,4 @@
-<div class="d-flex justify-center">
+<div class="{{ $cssClass }}">
     <input 
         type="submit"
         class="btn btn-primary me-1"

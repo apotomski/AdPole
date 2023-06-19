@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use App\Enums\RouteNamesEnum;
 use Illuminate\Routing\Redirector;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -18,12 +19,12 @@ class AnnouncementsController extends Controller
 {
     public function index(): View|Factory
     {
-        return view('announcements');
+        return view('Announcements.list');
     }
 
     public function create(): View|Factory
     {
-        return view();
+        return view('Announcements.create', ['action' => RouteNamesEnum::AnnouncementCreate->value]);
     }
 
     public function store(CreateEditAnnouncementRequest $request): Redirector|RedirectResponse

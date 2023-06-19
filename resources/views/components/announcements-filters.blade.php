@@ -12,6 +12,7 @@
             first-name="Filtruj"
             second-name="Czyść"
             second-href=""
+            css-class="d-flex justify-center"
         />
 
         <hr>
