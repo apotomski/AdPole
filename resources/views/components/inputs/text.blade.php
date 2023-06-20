@@ -10,4 +10,7 @@
     placeholder="{{ $placeholder }}"
     minlength="{{ $minLength }}"
     maxlength="{{ $maxLength }}"
+    @if ($required)
+        required
+    @endif
 />

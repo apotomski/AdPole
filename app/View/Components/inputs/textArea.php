@@ -17,6 +17,7 @@ class textArea extends Component
     public string $cols;
     public string $minLength;
     public string $maxLength;
+    public bool $required;
 
     /**
      * Create a new component instance.
@@ -31,6 +32,7 @@ class textArea extends Component
         string $maxLength,
         string $rows,
         string $cols,
+        bool $required = false,
     ) {
         
         $this->inputId = $inputId;
@@ -42,6 +44,7 @@ class textArea extends Component
         $this->maxLength = $maxLength;
         $this->rows = $rows;
         $this->cols = $cols;
+        $this->required = $required;
     }
 
     /**

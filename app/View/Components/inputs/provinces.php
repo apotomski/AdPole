@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class provinces extends Component
 {
+    public bool $required;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(bool $required = false,)
     {
-        //
+        $this->required = $required;
     }
 
     /**

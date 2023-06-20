@@ -6,3 +6,9 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.background-gradient
+{
+    background-color: rgba(239, 183, 109, 1);
+    background-image: linear-gradient(56deg, rgba(239, 183, 109, 1) 60%, rgba(123, 218, 73, 1) 40%);
+}

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use stdClass;
 use Exception;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Enums\RouteNamesEnum;
+use App\Models\DTO\SelectDTO;
 use Illuminate\Routing\Redirector;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -24,7 +26,14 @@ class AnnouncementsController extends Controller
 
     public function create(): View|Factory
     {
-        return view('Announcements.create', ['action' => RouteNamesEnum::AnnouncementCreate->value]);
+
+        return view('Announcements.create', [
+            'action' => RouteNamesEnum::AnnouncementCreate->value,
+            'durations' => collect([
+                SelectDTO::from(['title' => '15 dni', 'value' => 15]),
+                SelectDTO::from(['title' => '30 dni', 'value' => 30]),
+            ]),
+        ]);
     }
 
     public function store(CreateEditAnnouncementRequest $request): Redirector|RedirectResponse

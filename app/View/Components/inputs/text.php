@@ -15,6 +15,7 @@ class text extends Component
     public string $label;
     public string $minLength;
     public string $maxLength;
+    public bool $required;
 
     /**
      * Create a new component instance.
@@ -27,6 +28,7 @@ class text extends Component
         string $label,
         string $minLength,
         string $maxLength,
+        bool $required = false,
     ) {
         
         $this->inputId = $inputId;
@@ -36,6 +38,7 @@ class text extends Component
         $this->label = $label;
         $this->minLength = $minLength;
         $this->maxLength = $maxLength;
+        $this->required = $required;
     }
 
     /**

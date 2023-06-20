@@ -26,9 +26,10 @@
                         value=""
                         min-length="3"
                         max-length="100"
+                        :required=true
                     />
 
-                    <x-inputs.provinces />
+                    <x-inputs.provinces :required=true/>
 
                     <x-inputs.text 
                         input-id="city"
@@ -38,6 +39,15 @@
                         value=""
                         min-length="3"
                         max-length="100"
+                        :required=true
+                    />
+
+                    <x-inputs.select 
+                        :collection="$durations"
+                        :required=true
+                        input-id="duration"
+                        label="Dostępne przez*"
+                        name="duration"
                     />
 
                     <x-inputs.textArea
