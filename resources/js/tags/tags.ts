@@ -37,6 +37,7 @@ function createNewTagCard(value: string): HTMLElement
     spanTag.dataset.parentId = newId;
     spanTag.textContent = 'x';
     deleteTagCardListener(spanTag);
+    console.log(123);
 
     baseDiv.append(spanTag);
 
@@ -51,8 +52,10 @@ function generateCardUniqId(): string
 function deleteTagCardListener(element: Element): void
 {
     element.addEventListener('click', (event) => {
-        let tagCardElement = document.querySelector(`#tag-${element.getAttribute('parentNumber')}`);
-        if(tagCardElement)
-            tagCardElement.remove();
+        if(event.target) {
+            let tagCardElement = document.querySelector(`#tag-${(<HTMLTextAreaElement>event.target).dataset.parentId}`);
+            if(tagCardElement)
+                tagCardElement.remove();
+        }
     });
 }
