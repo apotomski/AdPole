@@ -14,7 +14,7 @@
                     action="{{ route($action) }}"
                 >
                     @csrf
-                    @if ($action === \App\Enums\RouteNamesEnum::AnnouncementEdit->value)
+                    @if ($action === \App\Enums\RouteNamesEnum::AnnouncementUpdate->value)
                         @method('PUT')
                     @endif
 
@@ -22,8 +22,8 @@
                         input-id="title"
                         label="Tytuł*"
                         name="title"
-                        placeholder="Miasto"
-                        value=""
+                        placeholder="Tytuł"
+                        :value="!empty($dto->title) ? $dto->title : ''"
                         min-length="3"
                         max-length="100"
                         :required=true
@@ -36,7 +36,7 @@
                         label="Miasto*"
                         name="city"
                         placeholder="Miasto"
-                        value=""
+                        :value="!empty($dto->city) ? $dto->city : ''"
                         min-length="3"
                         max-length="100"
                         :required=true
@@ -55,14 +55,14 @@
                         label="Opis"
                         name="description"
                         placeholder="Opis"
-                        value=""
+                        :value="!empty($dto->description) ? $dto->description : ''"
                         rows="10"
                         cols=""
                         min-length=""
                         max-length="1000"
                     />
 
-                    <x-tags.tags />
+                    <x-tags.tags :tags="(!empty($dto->tags) && !$dto->tags->isEmpty()) ? $dto->tags : null" />
 
                     <hr>
 

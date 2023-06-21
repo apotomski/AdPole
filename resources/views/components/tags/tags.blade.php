@@ -11,6 +11,14 @@
             tag-number="1"
             text="tag1"
         /> --}}
+        @if(!empty($tags) && !$tags->isEmpty())
+            @foreach ($tags as $tag)
+                <x-tags.tags-card
+                    :tag-number="$tag->id"
+                    :text="$tag->text"
+                />
+            @endforeach
+        @endif
     </div>
 </div>
 

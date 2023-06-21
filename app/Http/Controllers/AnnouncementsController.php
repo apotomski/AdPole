@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use stdClass;
 use Exception;
 use App\Models\Announcement;
-use Illuminate\Http\Request;
 use App\Enums\RouteNamesEnum;
-use App\Models\DTO\SelectDTO;
 use Illuminate\Routing\Redirector;
+use App\Models\DTO\AnnouncementDTO;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
+use App\Factories\DTO\SelectDtoFactory;
 use App\Services\DB\Announcemnts\AnnouncementsCreateService;
 use App\Services\DB\Announcemnts\AnnouncementsUpdateService;
 use App\Services\DB\Announcemnts\AnnouncementsDestroyService;
@@ -27,12 +26,9 @@ class AnnouncementsController extends Controller
     public function create(): View|Factory
     {
 
-        return view('Announcements.create', [
-            'action' => RouteNamesEnum::AnnouncementCreate->value,
-            'durations' => collect([
-                SelectDTO::from(['title' => '15 dni', 'value' => 15]),
-                SelectDTO::from(['title' => '30 dni', 'value' => 30]),
-            ]),
+        return view('Announcements.createEdit', [
+            'action' => RouteNamesEnum::AnnouncementStore->value,
+            'durations' => SelectDtoFactory::createDurationCollection(),
         ]);
     }
 
@@ -49,7 +45,12 @@ class AnnouncementsController extends Controller
     
     public function edit(Announcement $model): View|Factory
     {
-        return view();
+        $dto = AnnouncementDTO::from($model->toArray());
+        return view('Announcements.createEdit', [
+            'action' => RouteNamesEnum::AnnouncementUpdate->value,
+            'durations' => SelectDtoFactory::createDurationCollection(),
+            'dto' => $dto,
+        ]);
     }
 
     public function update(Announcement $model, CreateEditAnnouncementRequest $request): Redirector|RedirectResponse
