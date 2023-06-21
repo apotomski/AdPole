@@ -43,6 +43,16 @@
                     />
 
                     <x-inputs.select 
+                        :collection="$categories"
+                        :selectedValue="!empty($dto->categoryId) ? $dto->categoryId : null"
+                        :required=true
+                        input-id="categories"
+                        label="Kategoria*"
+                        name="category"
+                    />
+
+
+                    <x-inputs.select 
                         :collection="$durations"
                         :required=true
                         input-id="duration"

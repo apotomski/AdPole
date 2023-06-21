@@ -14,6 +14,7 @@ class select extends Component
     public string $name;
     public string $label;
     public bool $required;
+    public mixed $selectedValue;
     /**
      * Create a new component instance.
      */
@@ -23,12 +24,14 @@ class select extends Component
         string $name,
         string $label,
         bool $required = false,
+        mixed $selectedValue = null,
     ) {
         $this->collection = $collection;
         $this->inputId = $inputId;
         $this->name = $name;
         $this->label = $label;
         $this->required = $required;
+        $this->selectedValue = $selectedValue;
     }
 
     /**

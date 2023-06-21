@@ -7,5 +7,5 @@ use Spatie\LaravelData\Data;
 class SelectDTO extends Data
 {
     public string $title;
-    public int $value;
+    public mixed $value;
 }

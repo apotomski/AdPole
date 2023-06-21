@@ -12,7 +12,12 @@
 >
     <option hidden>--- BRAK ---</option>
     @foreach ($collection as $data)
-        <option value="{{ $data->value }}">
+        <option 
+            value="{{ $data->value }}"
+            @if (!empty($selectedValue) && $selectedValue == $data->value)
+                selected
+            @endif
+        >
             {{ $data->title }}
         </option>
     @endforeach

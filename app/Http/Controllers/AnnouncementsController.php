@@ -25,10 +25,10 @@ class AnnouncementsController extends Controller
 
     public function create(): View|Factory
     {
-
         return view('Announcements.createEdit', [
             'action' => RouteNamesEnum::AnnouncementStore->value,
             'durations' => SelectDtoFactory::createDurationCollection(),
+            'categories' => SelectDtoFactory::createCategoryCollection(),
         ]);
     }
 
@@ -47,9 +47,10 @@ class AnnouncementsController extends Controller
     {
         $dto = AnnouncementDTO::from($model->toArray());
         return view('Announcements.createEdit', [
+            'dto' => $dto,
             'action' => RouteNamesEnum::AnnouncementUpdate->value,
             'durations' => SelectDtoFactory::createDurationCollection(),
-            'dto' => $dto,
+            'categories' => SelectDtoFactory::createCategoryCollection(),
         ]);
     }
 
